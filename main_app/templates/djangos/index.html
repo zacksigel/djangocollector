@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Django List</h1>
+
+{% for django in djangos %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">{{ django.title }}</span>
+    <p>Director: {{ django.director }}</p>
+    <p>Genre: {{ django.genre }}</p>
+    <p>Release Date: {{ django.release_date }}</p>
+  </div>
+</div>
+{% endfor %} {% endblock %}
