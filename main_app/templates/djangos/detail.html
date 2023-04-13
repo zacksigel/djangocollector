@@ -14,4 +14,41 @@
     <a href="{% url 'djangos_delete' django.id %}">Delete</a>
   </div>
 </div>
+<div class="col s6">
+  <form action="{% url 'add_screening' django.id %}" method="post">
+    {% csrf_token %} {{ screening_form.as_p }}
+    <input type="submit" class="btn" value="Add Screening" />
+  </form>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Screening</th>
+        <th>Theater</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for screening in django.screening_set.all %}
+      <tr>
+        <td>{{screening.date}}</td>
+        <td>{{screening.get_theater_display}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+
+<script>
+const dateEl = document.getElementById('id_date');
+const formSelectEl = document.getElementById('id_theater');
+
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  });
+  M.FormSelect.init(formSelectEl);
+</script>
+
 {% endblock %}

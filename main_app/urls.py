@@ -9,4 +9,5 @@ urlpatterns = [
   path("djangos/create/", views.DjangosCreate.as_view(), name="djangos_create"),
   path("djangos/<int:pk>/update/", views.DjangosUpdate.as_view(), name="djangos_update"),
   path("djangos/<int:pk>/delete/", views.DjangosDelete.as_view(), name="djangos_delete"),
+  path('djangos/<int:django_id>/add_screening/', views.add_screening, name='add_screening'),
 ]
