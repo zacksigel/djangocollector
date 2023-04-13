@@ -13,4 +13,4 @@ class Film(models.Model):
     return self.title
   
   def get_absolute_url(self):
-    return reverse("detail", kwargs={"django.id": self.id})
+      return reverse('detail', kwargs={'django_id': self.id})
