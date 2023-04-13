@@ -3,7 +3,7 @@
 <h1>Django List</h1>
 
 {% for django in djangos %}
-<a href="{% url 'detail' django.title %}">
+<a href="{% url 'detail' django.id %}">
 <div class="card">
   <div class="card-content">
     <span class="card-title">{{ django.title }}</span>

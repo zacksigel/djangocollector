@@ -9,5 +9,9 @@
     <p>Genre: {{ django.genre }}</p>
     <p>Release Date: {{ django.release_date }}</p>
   </div>
+  <div class="card-action">
+    <a href="{% url 'djangos_update' django.id %}">Edit</a>
+    <a href="{% url 'djangos_delete' django.id %}">Delete</a>
+  </div>
 </div>
 {% endblock %}

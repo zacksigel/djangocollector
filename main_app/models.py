@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 
@@ -10,9 +11,6 @@ class Film(models.Model):
   
   def __str__(self):
     return self.title
-
-djangos = [
-  Film('Django', 'Sergio Corbucci', 'Spaghetti Western', 1966),
-  Film('Django Unchained', 'Quentin Tarantino', 'Western', 2012),
-  Film('Sukiyaki Western Django', 'Takashi Miike', 'Japanese Western', 2008)
-]
+  
+  def get_absolute_url(self):
+    return reverse("detail", kwargs={"django.id": self.id})
