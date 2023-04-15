@@ -60,7 +60,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("djangos_index")
+            return redirect("home")
         else:
             error_message ="Invalid signup, try again"
     form = UserCreationForm()
