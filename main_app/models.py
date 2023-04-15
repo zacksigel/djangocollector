@@ -4,11 +4,22 @@ from django.urls import reverse
 
 # Create your models here.
 
+class Home_Video_Release(models.Model):
+  format = models.CharField(max_length=100)
+  platform = models.CharField(max_length=100)
+
+  def __str__(self):
+    return self.format
+  
+  def get_absolutel_url(self):
+    return reverse('detail', kwargs={'pk': self.id})
+
 class Django(models.Model):
   title = models.CharField(max_length=100)
   director = models.CharField(max_length=100)
   genre = models.CharField(max_length=100)
   release_date = models.CharField(max_length=100)
+  home_video_releases = models.ManyToManyField(Home_Video_Release)
   
   def __str__(self):
     return self.title
