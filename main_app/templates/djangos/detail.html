@@ -42,19 +42,46 @@
 <div class="row">
   <div class="col s6">
     <h3>{{ django.title }} is available on</h3>
-    {% if django.home_video_releases.count %} {% for release in cat.home_video_releases.all %}
+    {% if django.home_video_releases.count %} {% for release in django.home_video_releases.all %}
     <div class="card">
       <div class="card-content">
         <span class="card-title">
           {{ release.format }}: {{ release.platform }}
         </span>
       </div>
+      <div class="card-action">
+        <form action="{% url 'unassoc_home_video_release' django.id release.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn">Remove</button>
+        </form>
+      </div>
     </div>
     {% endfor %} {% else %}
     <h5>No home video releases</h5>
     {% endif %}
   </div>
-  <!-- Available toys will come after this line -->
+</div>
+<div class="col s6">
+  <h3>Not released on</h3>
+  {% if not_released_on.count %}
+    {% for release in not_released_on.all %}
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">
+            {{ release.format }}: {{ release.platform }}
+          </span>
+        </div>
+        <div class="card-action">
+          <form action="{% url 'assoc_home_video_release' django.id release.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Add</button>
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <h5>{{django.title}} is available on all platforms</h5>
+  {% endif %}
 </div>
 
 <script>
