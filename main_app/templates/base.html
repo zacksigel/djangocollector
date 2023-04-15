@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Django Collector</title>
+    <title>Film Collector</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
@@ -20,14 +20,14 @@
         <div class="nav-wrapper">
           <ul>
             <li>
-              <a href="/" class="left brand-logo">  Django Collector</a>
+              <a href="/" class="left brand-logo">Film Collector</a>
             </li>
           </ul>
           <ul class="right">
             <li><a href="{% url 'about' %}">About</a></li>
             {% if user.is_authenticated %}
-            <li><a href="{% url 'index' %}">View All My Djangos</a></li>
-            <li><a href="{% url 'djangos_create' %}">Add New Django</a></li>
+            <li><a href="{% url 'index' %}">View All My Films</a></li>
+            <li><a href="{% url 'djangos_create' %}">Add New Film</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
@@ -40,7 +40,7 @@
     <main class="container">{% block content %} {% endblock %}</main>
     <footer class="page-footer">
       <div class="right">
-        All Rights Reserved, © 2019 Django Collector  
+        All Rights Reserved, © 2023 Film Collector  
       </div>
     </footer>
   </body>
